@@ -1,0 +1,77 @@
+@bg-color:royalblue;
+*{
+  margin: 0;
+  padding: 0;
+  //CSS3盒子模型，传统的是content-box
+  box-sizing: border-box;
+}
+
+body{
+  background-color:@bg-color;
+  font: bold 20px "Courier";
+}
+
+#main{
+  height: 420px;
+  width: 360px;
+  margin: 100px auto;
+  border: black solid 10px;
+  border-radius: 40px;
+  background-color: peru;
+
+  //开启布局
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
+
+  #stage{
+    height: 304px;
+    width: 304px;
+    border: black solid 2px;
+    position: relative;
+    
+    #snake{
+
+      &>div{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+        background-color: #000;
+        border: 1px solid peru;
+      }
+    }
+
+    #food{
+      width: 10px;
+      height: 10px;
+      //background-color: red;
+      position: relative;
+      top: 30px;
+      left: 30px;
+      //开启弹性盒子模型
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      //这个和 align-items的区别在于这个是多列
+      align-content: space-between;
+
+
+      & > div{
+        width: 4px;
+        height: 4px;
+        background-color: black;
+        transform: rotate(45deg);
+
+      }
+    }
+  }
+
+  #score-panel{
+    //font:  normal bold  20px "Courier New";
+    width: 300px;
+    display:flex;
+    justify-content: space-between;
+  }
+
+}
